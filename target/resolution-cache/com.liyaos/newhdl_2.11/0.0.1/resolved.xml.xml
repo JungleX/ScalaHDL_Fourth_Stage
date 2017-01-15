@@ -4,7 +4,7 @@
 		module="newhdl_2.11"
 		revision="0.0.1"
 		status="integration"
-		publication="20161114131338"
+		publication="20170115194946"
 	>
 		<description>
 		newhdl
@@ -27,9 +27,7 @@
 	</configurations>
 	<publications>
 		<artifact name="newhdl_2.11" type="pom" ext="pom" conf="pom"/>
-		<artifact name="newhdl_2.11" type="jar" ext="jar" conf="compile"/>
-		<artifact name="newhdl_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-		<artifact name="newhdl_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		<artifact name="newhdl_2.11" type="jar" ext="jar" conf="optional" e:classifier="download"/>
 	</publications>
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.7" conf="scala-tool->default,optional(default)"/>

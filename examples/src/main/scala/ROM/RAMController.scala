@@ -1,12 +1,12 @@
 package NewHDLExample.RAMController
 
-import javax.comm._
-import java.io._;
-import java.util._;
+//import javax.comm._
+import java.io._
+import java.util._
 /**
   * Created by user on 2016/11/21.
   */
-class RAMController (s: Int, run: Int, clk: Int, we: Int, din: Int) {
+/*class RAMController (s: Int, run: Int, clk: Int, we: Int, din: Int) {
   private val port = CommPortIdentifier.getPortIdentifier("COM3")
   private val serialPort :SerialPort = port.open("ScalaHDL", 200000).asInstanceOf[SerialPort]
   private val inputStream = serialPort.getInputStream
@@ -46,4 +46,5 @@ class RAMController (s: Int, run: Int, clk: Int, we: Int, din: Int) {
   }
 
 }
+*/
 
