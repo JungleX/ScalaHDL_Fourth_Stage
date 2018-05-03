@@ -17,7 +17,7 @@ class AddSub[T <: Arithable](clk: HDL[Boolean], rst: HDL[Boolean],
     }
   }
 
-  override val toCompile = List(addsub.addExternalModule(subModule_Add).addExternalModule(subModule_Sub))
+  //override val toCompile = List(addsub.addExternalModule(subModule_Add).addExternalModule(subModule_Sub))
 }
 
 object Main {

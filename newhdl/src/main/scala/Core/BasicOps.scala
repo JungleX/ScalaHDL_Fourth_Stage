@@ -1,15 +1,14 @@
 package NewHDL.Core
 
-import NewHDL.Core.HDLBase.HDLClass
-
-import scala.reflect.macros.blackbox
+import scala.reflect.macros.Context
 import scala.language.experimental.macros
-import scala.annotation.tailrec
+import scala.annotation.StaticAnnotation
 import scala.collection.mutable.Stack
 import scala.util.DynamicVariable
 import scala.math.pow
+
 import java.net.{DatagramPacket, DatagramSocket, InetAddress}
-import com.typesafe.config._
+import scala.annotation.tailrec
 
 import NewHDL.Exceptions.NotEnoughBitsException
 import NewHDL.Simulation.Core.Waiter
@@ -34,13 +33,13 @@ object HDLBase {
 
   val currentMod = new DynamicVariable[HDLModule](null)
 
-//  def HDLlize[T](x: Seq[T]): HDLList[T] = currentMod.value.HDLlize(x)
+  //  def HDLlize[T](x: Seq[T]): HDLList[T] = currentMod.value.HDLlize(x)
   def HDLlize[T](x: T): HDLReg[T] = currentMod.value.HDLlize(x)
 
   case class HDLRev[T](a: HDLExp[T]) extends HDLExp[T]
 
   class Register(val name: String, _value: Int,
-    val length: Int, val signed: Boolean) {
+                 val length: Int, val signed: Boolean) {
     var value = _value
     protected var next: Int = value
 
@@ -48,10 +47,9 @@ object HDLBase {
     private var posedgeWaiters: List[Waiter] = List()
     private var negedgeWaiters: List[Waiter] = List()
 
-    // get n th bit
     def apply(n: Int): Int = {
       if (n < length)
-        (value / pow(2, n).toInt) & 1
+        (value / (pow(2, n).toInt)) & 1
       else 0
     }
 
@@ -59,8 +57,8 @@ object HDLBase {
       if (signed) {
         next = if (HDLPrimitive.getSignedSize(n) > length) {
           val s = n.toBinaryString
-          val t = Integer.parseInt(s.slice(s.length - length + 1, s.length), 2)
-          if (s(s.length - length) == "1"(0)) -(~t + 1)
+          val t = Integer.parseInt(s.slice(s.size - length + 1, s.size), 2)
+          if (s(s.size - length) == "1"(0)) -(~t + 1)
           else t
         } else {
           n
@@ -69,7 +67,7 @@ object HDLBase {
         if (n >= 0) {
           next = if (HDLPrimitive.getUnsignedSize(n) > length) {
             val s = n.toBinaryString
-            Integer.parseInt(s.slice(s.length - length, s.length), 2)
+            Integer.parseInt(s.slice(s.size - length, s.size), 2)
           } else n
         } else {
           var n0 = n
@@ -111,8 +109,8 @@ object HDLBase {
   }
 
   class RegisterBit(override val name: String, _value: Int,
-    reg: Register, idx: Int)
-      extends Register(name, _value, 1, false) {
+                    reg: Register, idx: Int)
+    extends Register(name, _value, 1, false) {
 
     def getReg = reg
 
@@ -156,7 +154,7 @@ object HDLBase {
   }
 
   case class HDLValueListElem[T](lst: HDLValueList[T], idx: HDLReg[Unsigned])
-      extends HDLDef[T] {
+    extends HDLDef[T] {
     override def registers: List[Register] = lst.registers
   }
 
@@ -183,10 +181,10 @@ object HDLBase {
   case class HDLConcat[T](a: HDLExp[T], b: HDLExp[T]) extends HDLExp[T]
 
   case class HDLLeftShift[+T](a: HDLExp[T], b: HDLExp[Unsigned])
-      extends HDLExp[T]
+    extends HDLExp[T]
 
   case class HDLRightShift[+T](a: HDLExp[T], b: HDLExp[Unsigned])
-      extends HDLExp[T]
+    extends HDLExp[T]
 
   case class HDLLeftShiftInt[+T](a: HDLExp[T], b: Int) extends HDLExp[T]
 
@@ -197,10 +195,10 @@ object HDLBase {
   case class HDLLessThan[T](a: HDLExp[T], b: HDLExp[T]) extends HDLExp[Boolean]
 
   case class HDLGreaterThanOrEqual[T](a: HDLExp[T], b: HDLExp[T])
-      extends HDLExp[Boolean]
+    extends HDLExp[Boolean]
 
   case class HDLLessThanOrEqual[T](a: HDLExp[T], b: HDLExp[T])
-      extends HDLExp[Boolean]
+    extends HDLExp[Boolean]
 
   abstract class HDLType {
     def toRegisters: List[Register]
@@ -208,7 +206,7 @@ object HDLBase {
   }
 
   abstract class HDLPrimitive(
-    val value: Int, val length: Int, val signed: Boolean) extends HDLType {
+                               val value: Int, val length: Int, val signed: Boolean) extends HDLType {
 
     checkValid()
 
@@ -233,28 +231,28 @@ object HDLBase {
     override def toRegisters(name: String) = List(
       new Register(name, value, length, false))
   }
-// error
+
   object HDLPrimitive {
     def getUnsignedSize(value: Int): Int = {
-      value.abs.toBinaryString.length
+      value.abs.toBinaryString.size
     }
 
     def getSignedSize(value: Int): Int = {
       val s = value.toBinaryString
       if (value == -1) 2
-      else if (value < 0) ("1" + s.dropWhile(_ == '1')).length
+      else if (value < 0) ("1" + s.dropWhile(_ == '1')).size
       else if (value == 0) 1
-      else s.length + 1
+      else s.size + 1
     }
   }
 
   case class Bool(override val value: Int)
-      extends HDLPrimitive(value, 1, false) with Arithable {
+    extends HDLPrimitive(value, 1, false) with Arithable {
     override def getName = "Bool(" + value + ")"
   }
 
   case class Signed(override val value: Int, override val length: Int)
-      extends HDLPrimitive(value, length, true) with Arithable {
+    extends HDLPrimitive(value, length, true) with Arithable {
     override def getName = "Signed(" + value + ")"
     override def toRegisters = List(
       new Register(getName, value, length, true))
@@ -263,45 +261,45 @@ object HDLBase {
   }
 
   case class Unsigned(override val value: Int, override val length: Int)
-      extends HDLPrimitive(value, length, false) with Arithable {
+    extends HDLPrimitive(value, length, false) with Arithable {
     override def getName = "Unsigned(" + value + ")"
   }
 
   implicit def list2hdlvaluelist[T](x: List[T]): HDLValueList[T] =
     HDLValueList(x.map(any2hdl(_)))
   implicit def any2hdl[T](x: => T): HDLReg[T] = new HDLReg[T](x)
-  implicit def int2hdlsigned(x: => Int): HDLReg[Signed] = new HDLReg(Signed(x,
+  implicit def int2hdlsigned(x: => Int) = new HDLReg(Signed(x,
     HDLPrimitive.getSignedSize(x)))
 
   private var exps: List[HDLExp[Any]] = List()
   private val expStack: Stack[List[HDLExp[Any]]] = new Stack()
   def addExp(exp: HDLExp[Any]) = {
-    var lst = expStack.pop()
+    var lst = expStack.pop
     lst = exp :: lst
     expStack.push(lst)
     expStack
   }
   def replaceLastExp(exp: HDLExp[Any]) = {
-    var lst = expStack.pop()
+    var lst = expStack.pop
     lst = exp :: lst.tail
     expStack.push(lst)
     expStack
   }
-  def removeLastExp() = {
-    val lst = expStack.pop()
+  def removeLastExp = {
+    val lst = expStack.pop
     expStack.push(lst.tail)
     expStack
   }
   def getExps = expStack.top.reverse
-  def incExpLvl() {
+  def incExpLvl {
     expStack.push(List())
   }
-  def clearExps() {
-    expStack.pop()
+  def clearExps {
+    expStack.pop
   }
   def getAndClearExps = {
     val l = getExps
-    clearExps()
+    clearExps
     l
   }
 
@@ -337,21 +335,21 @@ object HDLBase {
   }
 
   case class HDLAssign[T](lhs: HDLDef[T], rhs: HDLExp[T])
-      extends HDLExp[T]
+    extends HDLExp[T]
 
   case class HDLEquals[T](lhs: HDLExp[T], rhs: HDLExp[T])
-      extends HDLExp[Boolean]
+    extends HDLExp[Boolean]
 
   case class HDLNotEquals[T](lhs: HDLExp[T], rhs: HDLExp[T])
-      extends HDLExp[Boolean]
+    extends HDLExp[Boolean]
 
   abstract class HDLCondition[T] extends HDLExp[T]
 
   case class HDLNormalCondition[T](cond: HDLExp[Boolean], f: Seq[HDLExp[T]])
-      extends HDLCondition[T]
+    extends HDLCondition[T]
 
   case class HDLBooleanCondition[T](cond: Boolean, f: Seq[HDLExp[T]])
-      extends HDLCondition[T]
+    extends HDLCondition[T]
 
   case class HDLWhen[T](conditions: Seq[HDLCondition[T]]) extends HDLExp[T]
 
@@ -366,7 +364,7 @@ object HDLBase {
   }
 
   class HDLReg[+T](_value: => T)
-      extends HDLDef[T] {
+    extends HDLDef[T] {
 
     var name: Option[String] = None
     var out: Boolean = false
@@ -381,7 +379,7 @@ object HDLBase {
       case None => value.toString
     }
 
-    def isConst = name.isEmpty
+    def isConst = name == None
 
     def value = hdlval(_value)
 
@@ -428,7 +426,7 @@ object HDLBase {
 
     def initDecl: String = _value match {
       case s: Seq[Any] =>
-        val a = s.indices.zip(s.map(any2hdl(_))).map(elt =>
+        val a = (0 until s.length).zip(s.map(any2hdl(_))).map(elt =>
           getName + "[" + elt._1 + "] = " + elt._2.value).mkString(";\n") + ";\n"
         a
       case _ =>
@@ -467,55 +465,54 @@ object HDLBase {
 
     override def equals(other: Any): Boolean = other match {
       case num: Int =>
-        registers.size == 1 && registers.head.value == num
+        registers.size == 1 && registers(0).value == num
       case reg: HDLReg[T] =>
         getName == reg.getName && value == reg.value &&
-        length == reg.length && signed == reg.signed
+          length == reg.length && signed == reg.signed
     }
   }
 
   case class HDLListElem[T](lst: HDLReg[T], idx: HDLExp[Unsigned])
-      extends HDLDef[T] {
+    extends HDLDef[T] {
     override def registers: List[Register] = lst.registers
   }
 
   abstract class HDLBlock(val exps: Seq[HDLExp[Any]])
 
-  case class HDLSyncBlock(reg: HDLReg[Boolean], when: Int,
-    override val exps: Seq[HDLExp[Any]])
-      extends HDLBlock(exps)
+  case class HDLSyncBlock(val reg: HDLReg[Boolean], val when: Int,
+                          override val exps: Seq[HDLExp[Any]])
+    extends HDLBlock(exps)
 
-  case class HDLMultSyncBlock(regWhen: Seq[(HDLReg[Boolean], Int)],
-    override val exps: Seq[HDLExp[Any]])
-      extends HDLBlock(exps)
+  case class HDLMultSyncBlock(val regWhen: Seq[(HDLReg[Boolean], Int)],
+                              override val exps: Seq[HDLExp[Any]])
+    extends HDLBlock(exps)
 
-  case class HDLAsyncBlock(senslist: Seq[HDLReg[Any]],
-    override val exps: Seq[HDLExp[Any]])
-      extends HDLBlock(exps)
+  case class HDLAsyncBlock(val senslist: Seq[HDLReg[Any]],
+                           override val exps: Seq[HDLExp[Any]])
+    extends HDLBlock(exps)
 
-  case class HDLDelayBlock(duration: Int,
-    override val exps: Seq[HDLExp[Any]])
-      extends HDLBlock(exps)
+  case class HDLDelayBlock(val duration: Int,
+                           override val exps: Seq[HDLExp[Any]])
+    extends HDLBlock(exps)
 
   class HDLModule(_name: String) {
 
     val name = _name
     private var _params: List[HDLReg[Any]] = List()
     private var _blocks: List[HDLBlock] = List()
-    private var _externalModule: List[HDLClass] = List()
     var internalRegs: List[HDLReg[Any]] = List()
     var analyzed = false
 
     private var regCounter = 0
 
-/*
-    def HDLlize[T](x: Seq[T]): HDLList[T] = {
-      val l = new HDLList(x.map(any2hdl(_)), "temp" + regCounter)
-      internalRegs = l :: internalRegs
-      regCounter += 1
-      l
-    }
- */
+    /*
+        def HDLlize[T](x: Seq[T]): HDLList[T] = {
+          val l = new HDLList(x.map(any2hdl(_)), "temp" + regCounter)
+          internalRegs = l :: internalRegs
+          regCounter += 1
+          l
+        }
+     */
 
     def HDLlize[T](x: T): HDLReg[T] = {
       val r = new HDLReg(x)
@@ -526,18 +523,17 @@ object HDLBase {
     }
 
     def setParams(params: List[Any]) {
-      params.foreach {
+      params.map(param => param match {
         case reg: HDLReg[Any] =>
           _params = reg :: _params
         case lst: List[HDLReg[Any]] =>
           _params = lst.reverse ++ _params
-      }
+      })
     }
 
     def params = _params.reverse
 
     def setBlocks(blocks: List[HDLBlock]) {
-      _blocks = blocks.reverse
     }
 
     def blocks = _blocks.reverse
@@ -545,17 +541,10 @@ object HDLBase {
     def addBlock(block: HDLBlock) {
       _blocks = block :: _blocks
     }
-
-    def addExternalModule(externalModule: HDLClass): HDLModule = {
-      _externalModule = externalModule :: _externalModule
-      this
-    }
-
-    def externalModule = _externalModule
   }
 
-  def moduleImpl(c: blackbox.Context)(blocks: c.Expr[HDLBlock]*):
-      c.Expr[HDLModule] = {
+  def moduleImpl(c: Context)(blocks: c.Expr[HDLBlock]*):
+  c.Expr[HDLModule] = {
     import c.universe._
     def constructModule(moduleName: Name, names: List[(TermName, Int)]) = {
       // set name for parameters
@@ -564,36 +553,36 @@ object HDLBase {
         val tpe = pair._2
         if (tpe == 0) {
           Apply(Select(
-            Ident(TermName(name.toString)), TermName("setName")),
+            Ident(newTermName(name.toString)), newTermName("setName")),
             List(Literal(Constant(name.toString))))
         } else {
           Apply(Select(
-            Apply(Select(Literal(Constant(0)), TermName("until")),
-              List(Select(Ident(TermName(name.toString)),
-                TermName("size")))), TermName("foreach")),
+            Apply(Select(Literal(Constant(0)), newTermName("until")),
+              List(Select(Ident(newTermName(name.toString)),
+                newTermName("size")))), newTermName("foreach")),
             List(Function(List(ValDef(Modifiers(Flag.PARAM),
-              TermName("i"), TypeTree(), EmptyTree)),
+              newTermName("i"), TypeTree(), EmptyTree)),
               Apply(Select(
-                Apply(Select(Ident(TermName(name.toString)),
-                  TermName("apply")), List(Ident(TermName("i")))),
-                TermName("setName")),
+                Apply(Select(Ident(newTermName(name.toString)),
+                  newTermName("apply")), List(Ident(newTermName("i")))),
+                newTermName("setName")),
                 List(Apply(Select(Literal(Constant(name.toString)),
-                  TermName("$plus")), List(Ident(TermName("i")))))))))
+                  newTermName("$plus")), List(Ident(newTermName("i")))))))))
         }})
-      val r = Apply(Select(New(Ident(TypeName("HDLModule"))),
-        termNames.CONSTRUCTOR),
-        List(Literal(Constant(moduleName.decodedName.toString))))
-      val mod = TermName("mod")
+      val r = Apply(Select(New(Ident(newTypeName("HDLModule"))),
+        nme.CONSTRUCTOR),
+        List(Literal(Constant(moduleName.decoded))))
+      val mod = newTermName("mod")
       val d = ValDef(Modifiers(), mod, TypeTree(), r)
-      val p = Apply(Select(Ident(mod), TermName("setParams")),
-        List(Apply(Select(Ident(TermName("List")), TermName("apply")),
+      val p = Apply(Select(Ident(mod), newTermName("setParams")),
+        List(Apply(Select(Ident("List"), newTermName("apply")),
           names.map(pair =>
-            Ident(pair._1)))))
-      val b = Apply(Select(Ident(mod), TermName("setBlocks")),
-        List(Apply(Select(Ident(TermName("List")), TermName("apply")),
+            Ident(pair._1)).toList)))
+      val b = Apply(Select(Ident(mod), newTermName("setBlocks")),
+        List(Apply(Select(Ident("List"), newTermName("apply")),
           blocks.map(_.tree).toList)))
-      val db = Apply(Apply(Select(Ident(TermName("currentMod")),
-        TermName("withValue")), List(Ident(mod))), List(Block(List(p), b)))
+      val db = Apply(Apply(Select(Ident(newTermName("currentMod")),
+        newTermName("withValue")), List(Ident(mod))), List(Block(List(p), b)))
       c.Expr[HDLModule](Block(l ++ List(r, d, db), Ident(mod)))
     }
 
@@ -604,47 +593,46 @@ object HDLBase {
         var names: List[(TermName, Int)] = List()
         c.enclosingClass match {
           case ClassDef(_, className, _, Template(_, _, params)) =>
-            params.foreach {
+            params.map((param) => param match {
               case DefDef(_, name, _, params, _, _) =>
                 if (name == termNames.CONSTRUCTOR)
-                  params.head.map(
+                  params(0).map(
                     (param) => param match {
                       case ValDef(_, name,
                       AppliedTypeTree(Ident(typeName), inner), _) =>
                         // 0 for HDL[T]
-                        if (typeName == TypeName("HDL"))
+                        if (typeName == newTypeName("HDL"))
                           names = (name, 0) :: names
                         // 1 for List[HDL[T]]
-                        else if (typeName == TypeName("List"))
+                        else if (typeName == newTypeName("List"))
                           inner match {
                             case List(AppliedTypeTree(Ident(typeName2), _)) =>
-                              if (typeName2 == TypeName("HDL"))
+                              if (typeName2 == newTypeName("HDL"))
                                 names = (name, 1) :: names
                             case _ => ()
                           }
                       case _ => ()
                     })
               case _ => ()
-            }
+            })
             constructModule(moduleName, names.reverse)
         }
       case DefDef(_, moduleName, _, params, _, _) =>
-        val names = params.head.map((param) => param match {
+        val names = params(0).map((param) => param match {
           case ValDef(_, name, _, _) => name
         })
         constructModule(moduleName, names.map(name => (name, 0)))
       case _ =>
         c.Expr[HDLModule](
-          Apply(Select(New(Ident(TypeName("HDLModule"))),
-            termNames.CONSTRUCTOR),
+          Apply(Select(New(Ident(newTypeName("HDLModule"))),
+            nme.CONSTRUCTOR),
             List(Literal(Constant("")), Literal(Constant(null)))))
     }
   }
 
   abstract class HDLBaseClass
 
-  //abstract class HDLClass extends HDLBaseClass with BasicOps with Compiler with NetworkOps
-  abstract class HDLClass extends HDLBaseClass with BasicOps with Compiler
+  abstract class HDLClass extends HDLBaseClass with BasicOps with Compiler with NetworkOps
 
   trait Base {
     // Arithmetic related.
@@ -683,7 +671,7 @@ object HDLBase {
     }
 
     def sync(clk: HDLReg[Boolean], when: Int) = {
-      incExpLvl()
+      incExpLvl
       HDLSyncPart(clk, when)
     }
 
@@ -696,7 +684,7 @@ object HDLBase {
     }
 
     def sync(clkWhen: (HDLReg[Boolean], Int)*) = {
-      incExpLvl()
+      incExpLvl
       HDLMultSyncPart(clkWhen)
     }
 
@@ -709,7 +697,7 @@ object HDLBase {
     }
 
     def async = {
-      incExpLvl()
+      incExpLvl
       new HDLAsyncPart
     }
 
@@ -724,7 +712,7 @@ object HDLBase {
     }
 
     def delay(duration: Int) = {
-      incExpLvl()
+      incExpLvl
       HDLDelayPart(duration)
     }
 
@@ -737,7 +725,7 @@ object HDLBase {
     }
 
     def when(cond: HDLExp[Boolean]) = {
-      incExpLvl()
+      incExpLvl
       WhenPart1(cond)
     }
 
@@ -767,18 +755,18 @@ object HDLBase {
           val oth = getAndClearExps
           val conds2 = HDLNormalCondition(cond, oth) :: conds
           val w = HDLWhen(conds2)
-          removeLastExp()
+          removeLastExp
           new WhenPart2(conds2)
         }
       }
 
       def otherwise = {
-        incExpLvl()
+        incExpLvl
         HDLOtherwise
       }
 
       def elsewhen = {
-        incExpLvl()
+        incExpLvl
         HDLElsewhen
       }
     }
@@ -789,7 +777,6 @@ object HDLBase {
 
   trait Compiler extends Base {
     val toCompile: List[HDLModule] = List()
-    val interface: List[Tuple2[String, Int]] = List()
 
     def compile: String =
       (for (module <- toCompile) yield compile(module)).mkString("")
@@ -800,11 +787,12 @@ object HDLBase {
       case HDLNormalCondition(c, f) => c match {
         case r: HDLReg[Any] =>
           "if (" + compile(c) + " == 1) begin\n" +
-          f.map(compile(_)).mkString("\n") + "\nend"
-        case _ =>
+            f.map(compile(_)).mkString("\n") + "\nend"
+        case _ => {
           println(c)
           "if (" + compile(c) + ") begin\n" +
-          f.map(compile(_)).mkString("\n") + "\nend"
+            f.map(compile(_)).mkString("\n") + "\nend"
+        }
       }
       case HDLBooleanCondition(b, f) if b =>
         "begin\n" + f.map(compile(_)).mkString("\n") + "\nend\n"
@@ -816,7 +804,7 @@ object HDLBase {
         rhs match {
           case HDLValueListElem(lst, idx) =>
             val l = lst.lst
-            val s = l.indices.map(i =>
+            val s = (0 until l.length).map(i =>
               List(i, ": ", compile(lhs),
                 " <= ", compile(l(i)), ";").mkString).mkString("\n")
             "case (" + idx.getName + ")\n" + s + "\nendcase\n"
@@ -874,7 +862,7 @@ object HDLBase {
       b match {
         case HDLSyncBlock(reg, when, _) =>
           "always @(" + (if (when == 1) "posedge " else "negedge ") +
-          reg.getName + ") begin\n" + stmts + "\nend\n"
+            reg.getName + ") begin\n" + stmts + "\nend\n"
         case HDLMultSyncBlock(regs, _) =>
           "always @(" + regs.map(regWhen =>
             (if (regWhen._2 == 1) "posedge " else "negedge ")
@@ -882,7 +870,7 @@ object HDLBase {
             " or ") + ") begin\n" + stmts + "\nend\n"
         case HDLAsyncBlock(senslist, _) =>
           "always @(" + senslist.map(compile(_)).mkString(", ") +
-          ") begin\n" + stmts + "\nend\n"
+            ") begin\n" + stmts + "\nend\n"
       }
     }
 
@@ -898,116 +886,21 @@ object HDLBase {
       m.params.map((p) =>
         (if (p.out) "output " else "input ")
           + p.signedString + p.lengthString + p.getName +
-          ";\n").sorted.mkString("") +
-      regs.map(p => "reg " +
-        p.signedString + p.lengthString +
-        p.getName + p.sizeString + ";\n").sorted.mkString("") +
-      m.internalRegs.map((r) =>
-        "reg " + r.signedString + r.lengthString + r.getName + r.sizeString +
-          ";\n").sorted.mkString("") +
-      "\ninitial begin\n" + (regs ++ m.internalRegs).map(
-        _.initDecl).sorted.mkString("") + "end\n\n"
+          ";\n").toList.sorted.mkString("") +
+        regs.map(p => "reg " +
+          p.signedString + p.lengthString +
+          p.getName + p.sizeString + ";\n").toList.sorted.mkString("") +
+        m.internalRegs.map((r) =>
+          "reg " + r.signedString + r.lengthString + r.getName + r.sizeString +
+            ";\n").toList.sorted.mkString("") + "\n"
+        //"\ninitial begin\n" + (regs ++ m.internalRegs).map(
+        //_.initDecl).sorted.mkString("") + "end\n\n"
     }
-
-
-    protected def refExternalModule(m: List[HDLClass]): String = {
-      val HDLRegInstance = HDL(false)
-      val RegType: String = HDLRegInstance.getClass.getTypeName
-      m.map((p) =>
-        p.getClass.getSimpleName +
-        "(" +
-        p.getClass.getDeclaredFields.map((f) =>
-          if (f.getType.getName == RegType) "somePara" else "").mkString(",") +
-        ")" +
-        "\n"
-      ).mkString("")
-    }
-
 
     def compile(m: HDLModule): String = {
       moduleDeclaration(m,
-        registerDeclaration(m) + refExternalModule(m.externalModule) + "\n" +
-        (for (block <- m.blocks) yield compile(block)).mkString("\n"))
-    }
-    //For Debugging
-    def compileDebug : String =
-      (for (module <- toCompile) yield compileDebug(module)).mkString("")
-    def compileDebug(m:HDLModule): String = {
-      val l = interface.length
-      val s = "module " + "debugController" +"(\n" +
-        "clk,\n" +
-        "rst,\n" +
-        "addr,\n" +
-        "read,\n"+
-        "write,\n" +
-        "write_data,\n" +
-        "read_data\n" +
-        ");\n" +
-        "input clk;\n" +
-        "input rst;\n" +
-        "input [4:0] addr;\n" +
-        "input read;\n" +
-        "input [31:0] write_data;\n" +
-        "output reg [31:0] read_data;\n" +
-        "reg [31:0] buffer [31:0];\n" +
-        "wire [31:0] dout;\n" +
-        "wire ready;\n" +
-        "\n" +
-        "always @(clk) begin\n" +
-        "if (write && addr < " + (l - 2).toString + ") begin\n" +
-        "buffer[addr] <= write_data;\n" +
-        "end\n" +
-        "read_data <= buffer[addr];\n" +
-        "buffer[" + (l-2).toString + "] <= dout;\n" +
-        "buffer[" + (l-1).toString + "] <= ready;\n" +
-        "end\n" +
-        m.name + " ins(" + (for (i <- 0 until l-2) yield ("buffer["+i+"]")).mkString(",") + ",dout,ready);\n" +
-        "endmodule"
-
-      s
-    }
-    //For Invoking
-    def compileInvoke : String =
-      (for (module <- toCompile) yield compileInvoke(module)).mkString("")
-    def compileInvoke(m:HDLModule): String = {
-      val l = interface.length
-      val s = "module " + "invokeController" +"(\n" +
-        "clk,\n" +
-        "rst,\n" +
-        "addr,\n" +
-        "read,\n"+
-        "write,\n" +
-        "write_data,\n" +
-        "clkin,\n" +
-        "read_data\n" +
-        ");\n" +
-        "input clk;\n" +
-        "input rst;\n" +
-        "input [4:0] addr;\n" +
-        "input read;\n" +
-        "input [31:0] write_data;\n" +
-        "input clkin;\n"
-        "output reg [31:0] read_data;\n" +
-        "reg [31:0] buffer [31:0];\n" +
-        "wire [31:0] dout;\n" +
-        "wire ready;\n" +
-        "\n" +
-        "always @(clk) begin\n" +
-        "if (write && addr < " + (l - 2).toString + ") begin\n" +
-        "buffer[addr] <= write_data;\n" +
-        "end\n" +
-        "read_data <= buffer[addr];\n" +
-        "buffer[" + (l-2).toString + "] <= dout;\n" +
-        "buffer[" + (l-1).toString + "] <= ready;\n" +
-        "end\n" +
-        m.name + " ins(" + "clkin," + (for (i <- 1 until l-2) yield ("buffer["+i+"]")).mkString(",") + ",dout,ready);\n" +
-        "endmodule"
-
-      s
-    }
-    //Config File
-    def compileConfig : String = {
-      (for ((a,b) <- interface) yield (a.toString + "," + b.toString)).mkString("\n")
+        registerDeclaration(m) +
+          (for (block <- m.blocks) yield compile(block)).mkString("\n"))
     }
   }
 
@@ -1093,11 +986,6 @@ object HDLBase {
       }
     }
 
-    def network_debug_run() : Unit = {
-      val conf : Config = ConfigFactory.load()
-      network_debug_run(conf.getString("ScalaHDL.simulator-ip"), conf.getInt("ScalaHDL.simulator-port"),
-        conf.getInt("ScalaHDL.ScalaHDL-port"))
-    }
   }
 
 }

@@ -16,7 +16,7 @@ class RAM[T](clk: HDL[Boolean], run: HDL[Boolean],we: HDL[Boolean],
   }
 
   override val toCompile = List(ram)
-  override val interface = List(("clk",1),("run",1),("we",1),("addr",(math.log(depth)/math.log(2)).toInt),("din",width),("dout",width),("ready",1))
+  //override val interface = List(("clk",1),("run",1),("we",1),("addr",(math.log(depth)/math.log(2)).toInt),("din",width),("dout",width),("ready",1))
 }
 
 object Main {
@@ -30,12 +30,12 @@ object Main {
       Unsigned(0, wl_addr), Unsigned(0, wl_data), Unsigned(0, wl_data), false,
       depth, width)
     println("#######################")
-    println(mod.compileConfig)
+    //println(mod.compileConfig)
     println("#######################")
     println(mod.compile)
     println("#######################")
-    println(mod.compileDebug)
+   // println(mod.compileDebug)
     println("#######################")
-    println(mod.compileInvoke)
+  //  println(mod.compileInvoke)
   }
 }
