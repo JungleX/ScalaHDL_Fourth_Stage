@@ -284,6 +284,7 @@ object HDLBase {
     lst = exp :: lst.tail
     expStack.push(lst)
     expStack
+
   }
   def removeLastExp = {
     val lst = expStack.pop

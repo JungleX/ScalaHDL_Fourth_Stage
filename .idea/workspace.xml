@@ -2,177 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a900372-1675-453b-b8af-5328c3153f19" name="Default" comment="new">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/newhdl/src/main/scala/Core/PCIEInterface.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/src/main/scala/MultiModule/AddSub.scala" beforeDir="false" afterPath="$PROJECT_DIR$/examples/src/main/scala/MultiModule/AddSub.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/src/main/scala/ROM/RAM.scala" beforeDir="false" afterPath="$PROJECT_DIR$/examples/src/main/scala/ROM/RAM.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newhdl/src/main/scala/Core/BasicOps.scala" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/src/main/scala/Core/BasicOps.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$HDL$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$HDL$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$int2hdlsigned$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$int2hdlsigned$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$list2hdlvaluelist$1$$anonfun$apply$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$list2hdlvaluelist$1$$anonfun$apply$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$list2hdlvaluelist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$list2hdlvaluelist$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$1$$anonfun$apply$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$1$$anonfun$apply$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$anonfun$moduleImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$typecreator1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$typecreator1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$typecreator2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$$typecreator2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$NewHDL$Core$HDLBase$Base$$getSenslist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$NewHDL$Core$HDLBase$Base$$getSenslist$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$getSenslist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$getSenslist$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$getSenslist$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$$anonfun$getSenslist$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLAsyncPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLAsyncPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLDelayPart$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLDelayPart$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLDelayPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLDelayPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLMultSyncPart$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLMultSyncPart$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLMultSyncPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLMultSyncPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLSyncPart$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLSyncPart$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLSyncPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$HDLSyncPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart1$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart1$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2$HDLElsewhen$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2$HDLElsewhen$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2$HDLOtherwise$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2$HDLOtherwise$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$WhenPart2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$class.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Base$class.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Bool$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Bool$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Bool.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Bool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compile$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compileConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compileConfig$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compileDebug$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compileInvoke$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$compileInvoke$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$refExternalModule$1$$anonfun$apply$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$refExternalModule$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$$anonfun$registerDeclaration$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$class.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler$class.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Compiler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAdd$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAdd$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAdd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAssign$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAssign$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAssign.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAssign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAsyncBlock$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAsyncBlock$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAsyncBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLAsyncBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBaseClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBaseClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseAnd$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseAnd$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseAnd.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseAnd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseOr$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseOr$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseOr.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseOr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseXor$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseXor$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseXor.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBitwiseXor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBooleanCondition$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBooleanCondition$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBooleanCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLBooleanCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLConcat$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLConcat$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLConcat.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLConcat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDef.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDelayBlock$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDelayBlock$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDelayBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDelayBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDiv$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDiv$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDiv.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLDiv.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLEquals$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLEquals$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLEquals.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLEquals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThan$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThan$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThan.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThanOrEqual$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThanOrEqual$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThanOrEqual.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLGreaterThanOrEqual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex$$anonfun$registers$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex$$anonfun$registers$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLIndex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShift$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShift$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShift.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShift.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShiftInt$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShiftInt$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShiftInt.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLeftShiftInt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThan$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThan$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThan.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThanOrEqual$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThanOrEqual$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThanOrEqual.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLLessThanOrEqual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLListElem$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLListElem$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLListElem.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLListElem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMod$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMod$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMod.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule$$anonfun$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule$$anonfun$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule$$anonfun$setParams$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule$$anonfun$setParams$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMul$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMul$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMul.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMul.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMultSyncBlock$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMultSyncBlock$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMultSyncBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLMultSyncBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNormalCondition$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNormalCondition$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNormalCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNormalCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNotEquals$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNotEquals$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNotEquals.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLNotEquals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive$$anonfun$getSignedSize$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive$$anonfun$getSignedSize$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLPrimitive.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$1$$anonfun$apply$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$1$$anonfun$apply$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$length$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$length$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$signed$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg$$anonfun$signed$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLReg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRev$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRev$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRev.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRev.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShift$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShift$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShift.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShift.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShiftInt$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShiftInt$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShiftInt.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLRightShiftInt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice$$anonfun$registers$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice$$anonfun$registers$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSlice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSub$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSub$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSub.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSub.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSyncBlock$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSyncBlock$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSyncBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLSyncBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLType.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$$anonfun$registers$3$$anonfun$apply$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$$anonfun$registers$3$$anonfun$apply$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$$anonfun$registers$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$$anonfun$registers$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueListElem$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueListElem$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueListElem.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLValueListElem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLWhen$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLWhen$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLWhen.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$HDLWhen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps$class.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps$class.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$NetworkOps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$RegisterBit.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$RegisterBit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Signed$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Signed$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Signed.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Signed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Unsigned$.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Unsigned$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Unsigned.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase$Unsigned.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/newhdl/target/scala-2.11/classes/NewHDL/Core/HDLBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$006fb3b2e7a57e9c7d17$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$006fb3b2e7a57e9c7d17.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$006fb3b2e7a57e9c7d17.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$dce59a9ce1c42f89ba4f$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$dce59a9ce1c42f89ba4f.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$dce59a9ce1c42f89ba4f.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterDir="false" />
     </list>
     <ignored path="ScalaHDL2-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,14 +42,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BasicOps.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BasicOps.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newhdl/src/main/scala/Core/BasicOps.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="394" column="38" lean-forward="true" selection-start-line="394" selection-start-column="38" selection-end-line="394" selection-end-column="38" />
+            <state relative-caret-position="2359">
+              <caret line="292" column="3" lean-forward="true" selection-start-line="292" selection-start-column="3" selection-end-line="292" selection-end-column="3" />
               <folding>
                 <element signature="e#21#56#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PCIEInterface.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/newhdl/src/main/scala/Core/PCIEInterface.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -278,6 +119,7 @@
         <option value="$PROJECT_DIR$/examples/src/main/scala/MultiModule/AddSub.scala" />
         <option value="$PROJECT_DIR$/examples/src/main/scala/ROM/RAM.scala" />
         <option value="$PROJECT_DIR$/newhdl/src/main/scala/Core/BasicOps.scala" />
+        <option value="$PROJECT_DIR$/newhdl/src/main/scala/Core/PCIEInterface.scala" />
       </list>
     </option>
   </component>
@@ -285,7 +127,7 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -321,23 +163,6 @@
               <item name="examples" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newhdl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaHDL_Fourth_Stage" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newhdl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ScalaHDL_Fourth_Stage" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="FSM" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newhdl" type="b2602c69:ProjectViewProjectNode" />
@@ -821,17 +646,17 @@
     <option name="totallyTimeSpent" value="414000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SBT Console" order="11" sideWeight="0.4978678" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4978678" weight="0.32659575" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" sideWeight="0.4978678" visible="true" weight="0.32659575" />
       <window_info anchor="right" id="sbt" order="9" />
       <window_info id="Palette&#9;" order="5" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5021322" side_tool="true" weight="0.32765958" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32765958" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4978678" weight="0.32936078" />
       <window_info anchor="right" id="Designer" order="3" />
@@ -1127,13 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/src/main/scala/MultiModule/AddSub.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/src/main/scala/ROM/RAM.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -1150,11 +968,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/newhdl/src/main/scala/Core/BasicOps.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="394" column="38" lean-forward="true" selection-start-line="394" selection-start-column="38" selection-end-line="394" selection-end-column="38" />
+        <state relative-caret-position="2359">
+          <caret line="292" column="3" lean-forward="true" selection-start-line="292" selection-start-column="3" selection-end-line="292" selection-end-column="3" />
           <folding>
             <element signature="e#21#56#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/src/main/scala/MultiModule/AddSub.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhdl/src/main/scala/Core/PCIEInterface.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
         </state>
       </provider>
     </entry>
