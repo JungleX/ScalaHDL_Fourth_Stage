@@ -1,0 +1,5 @@
+package QuarticFunction
+
+class QuarticFunction {
+
+}
