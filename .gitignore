@@ -1,6 +1,8 @@
 project
 newhdl/target
 example/target
+newhdl/project
+example/project
 target
 .idea
 # Windows image file caches

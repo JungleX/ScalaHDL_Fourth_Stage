@@ -20,7 +20,10 @@ class FIFO[T](clk: HDL[Boolean], rst: HDL[Boolean],
           for (i <- 0 until depth - 1)
             fifo_registers(i + 1) := fifo_registers(i)
       }
+
+
     }
+
   }
 
   override val toCompile = List(fifo)

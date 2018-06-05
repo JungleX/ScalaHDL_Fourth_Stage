@@ -138,14 +138,38 @@ object HDLBase {
 
   trait Arithable
 
-  case class HDLIndex[T](a: HDLDef[T], idx: Int) extends HDLDef[T] {
+  case class HDLIndex[T](a: HDLReg[T], idx: Int) extends HDLDef[T] {
     override def registers: List[Register] = a.registers.map {
       r => new RegisterBit(r.name, (r.value >> idx) & 1, r, idx)
     }
+    override def :=[S >: T](rhs: HDLExp[S]) = {
+      a.out = true
+      val b = HDLAssign[S](this, rhs)
+      addExp(b)
+      b
+    }
+    override def ::=[S >: T](rhs: HDLExp[S]) = {
+      a.out = true
+      val b = HDLBlockedAssign[S](this, rhs)
+      addExp(b)
+      b
+    }
   }
 
-  case class HDLSlice[T](a: HDLExp[T], hi: Int, lo: Int) extends HDLDef[T] {
+  case class HDLSlice[T](a: HDLReg[T], hi: Int, lo: Int) extends HDLDef[T] {
     override def registers: List[Register] = a.registers
+    override def :=[S >: T](rhs: HDLExp[S]) = {
+      a.out = true
+      val b = HDLAssign[S](this, rhs)
+      addExp(b)
+      b
+    }
+    override def ::=[S >: T](rhs: HDLExp[S]) = {
+      a.out = true
+      val b = HDLBlockedAssign[S](this, rhs)
+      addExp(b)
+      b
+    }
   }
 
   case class HDLValueList[T](lst: List[HDLExp[T]]) extends HDLDef[T] {
@@ -338,6 +362,9 @@ object HDLBase {
   case class HDLAssign[T](lhs: HDLDef[T], rhs: HDLExp[T])
     extends HDLExp[T]
 
+  case class HDLBlockedAssign[T](lhs: HDLDef[T], rhs: HDLExp[T])
+    extends HDLExp[T]
+
   case class HDLEquals[T](lhs: HDLExp[T], rhs: HDLExp[T])
     extends HDLExp[Boolean]
 
@@ -353,6 +380,11 @@ object HDLBase {
     extends HDLCondition[T]
 
   case class HDLWhen[T](conditions: Seq[HDLCondition[T]]) extends HDLExp[T]
+  abstract class HDLSwitchBody[T] extends HDLExp[T]
+  case class HDLSwitch[T](sel: HDLDef[T], cases: Seq[HDLSwitchBody[T]]) extends HDLExp[T]
+
+  case class HDLSwitchCase[T](value: Int, f: Seq[HDLExp[T]]) extends HDLSwitchBody[T]
+  case class HDLSwitchDefault[T](f: Seq[HDLExp[T]]) extends HDLSwitchBody[T]
 
   abstract class HDLDef[+T] extends HDLExp[T] {
     def :=[S >: T](rhs: HDLExp[S]) = {
@@ -360,7 +392,11 @@ object HDLBase {
       addExp(a)
       a
     }
-
+    def ::=[S >: T](rhs: HDLExp[S]) = {
+      val a = HDLBlockedAssign[S](this, rhs)
+      addExp(a)
+      a
+    }
     def registers: List[Register]
   }
 
@@ -390,7 +426,12 @@ object HDLBase {
       addExp(a)
       a
     }
-
+    override def ::=[S >: T](rhs: HDLExp[S]) = {
+      out = true
+      val a = HDLBlockedAssign[S](this, rhs)
+      addExp(a)
+      a
+    }
     def length: Int = _value match {
       case Seq(a, _*) => a.length
       case p: HDLPrimitive => p.length
@@ -494,6 +535,12 @@ object HDLBase {
 
   case class HDLDelayBlock(val duration: Int,
                            override val exps: Seq[HDLExp[Any]])
+    extends HDLBlock(exps)
+
+  case class HDLInstance(val moduleName: String, val insName: String, override val exps: Seq[HDLExp[Any]],val paras: Seq[HDLReg[Any]])
+    extends HDLBlock(exps)
+
+  case class HDLAssignBlock(override val exps: Seq[HDLExp[Any]])
     extends HDLBlock(exps)
 
   class HDLModule(_name: String) {
@@ -649,6 +696,7 @@ object HDLBase {
       case HDLEquals(l, r) => getSenslist(l) ++ getSenslist(r)
       case HDLNotEquals(l, r) => getSenslist(l) ++ getSenslist(r)
       case HDLAssign(_, rhs) => getSenslist(rhs)
+      case HDLBlockedAssign(_, rhs) => getSenslist(rhs)
       case r: HDLReg[Any] => if (!r.isConst) Seq(r) else Seq()
       case HDLRev(x) => getSenslist(x)
       case HDLAdd(x, y) => getSenslist(x) ++ getSenslist(y)
@@ -697,6 +745,17 @@ object HDLBase {
       }
     }
 
+    def assign = {
+      incExpLvl
+      new HDLAssignPart
+    }
+    class HDLAssignPart {
+      def apply(exps: HDLExp[Any]*) = {
+        val block = HDLAssignBlock(getAndClearExps)
+        currentMod.value.addBlock(block)
+        block
+      }
+    }
     def async = {
       incExpLvl
       new HDLAsyncPart
@@ -725,6 +784,38 @@ object HDLBase {
       }
     }
 
+    def switch(sel: HDLDef[Any]) = {
+      incExpLvl
+      new SwitchBody(sel, List())
+    }
+    class SwitchBody(sel: HDLDef[Any], cases: List[HDLSwitchCase[Any]]){
+      addExp(HDLSwitch(sel,cases))
+      def is  = {
+        incExpLvl
+        CaseBody
+      }
+      def default = {
+        incExpLvl
+        DefaultBody
+      }
+      object CaseBody{
+        def apply(v : Int)(exps: Unit*) ={
+          val e = getAndClearExps
+          val cases1 = HDLSwitchCase(v,e) :: cases
+          removeLastExp
+          new SwitchBody(sel,cases1)
+        }
+      }
+      object DefaultBody{
+        def apply(exps: Unit*) = {
+          val e = getAndClearExps
+          val cases1 = HDLSwitchDefault(e) :: cases
+          val w = HDLSwitch(sel,cases1)
+          replaceLastExp(w)
+          w
+        }
+      }
+    }
     def when(cond: HDLExp[Boolean]) = {
       incExpLvl
       WhenPart1(cond)
@@ -771,6 +862,13 @@ object HDLBase {
         HDLElsewhen
       }
     }
+
+    def instance(moduleName: String, insName: String, paras: HDLReg[Any]*) = {
+      val i = new HDLInstance(moduleName, insName, Seq(), paras)
+      currentMod.value.addBlock(i)
+      i
+    }
+
   }
 
   trait BasicOps extends Base {
@@ -783,6 +881,13 @@ object HDLBase {
       (for (module <- toCompile) yield compile(module)).mkString("")
 
     protected def compile[T](exp: HDLExp[T]): String = exp match {
+      case HDLSwitch(sel,cases) =>
+        "case("  + compile(sel)+ ")\n" + cases.reverse.map(compile(_)).mkString("\n") +
+        "endcase"
+      case HDLSwitchCase(v,exps) =>
+        v.toString + ": begin\n" + exps.map(compile(_)).mkString("\n") + "end"
+      case HDLSwitchDefault(exps) =>
+        "default: begin\n" + exps.map(compile(_)).mkString("\n") + "end"
       case HDLWhen(conditions) =>
         conditions.reverse.map(compile(_)).mkString("\nelse ")
       case HDLNormalCondition(c, f) => c match {
@@ -811,6 +916,17 @@ object HDLBase {
             "case (" + idx.getName + ")\n" + s + "\nendcase\n"
           case _ =>
             compile(lhs) + " <= " + compile(rhs) + ";"
+        }
+      case HDLBlockedAssign(lhs, rhs) =>
+        rhs match {
+          case HDLValueListElem(lst, idx) =>
+            val l = lst.lst
+            val s = (0 until l.length).map(i =>
+              List(i, ": ", compile(lhs),
+                " <= ", compile(l(i)), ";").mkString).mkString("\n")
+            "case (" + idx.getName + ")\n" + s + "\nendcase\n"
+          case _ =>
+            compile(lhs) + " = " + compile(rhs) + ";"
         }
       case HDLRev(x) =>
         "~" + compile(x)
@@ -872,6 +988,10 @@ object HDLBase {
         case HDLAsyncBlock(senslist, _) =>
           "always @(" + senslist.map(compile(_)).mkString(", ") +
             ") begin\n" + stmts + "\nend\n"
+        case HDLInstance(moduleName, insName, _, paras) =>
+          moduleName  + " " +insName + "(" + paras.map(_.getName).mkString(", ") + ");"
+        case HDLAssignBlock(exps) =>
+          (for (exp <- b.exps) yield compile(exp)).toList.map(exp => "assign " + exp ).mkString("\n")
       }
     }
 

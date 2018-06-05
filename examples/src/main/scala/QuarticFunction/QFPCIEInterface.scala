@@ -3,7 +3,7 @@ package QuarticFunction
 
 import java.nio.ByteBuffer
 
-import NewHDL.core.PCIEInterface
+import NewHDL.Core.PCIEInterface
 object QFPCIEInterface {
   private var tid:Long = 0
   def startTransaction = {

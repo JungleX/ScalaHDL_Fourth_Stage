@@ -1,4 +1,4 @@
-package NewHDL.core
+package NewHDL.Core
 
 import java.io.{FileInputStream, FileOutputStream}
 import java.nio.ByteBuffer

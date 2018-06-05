@@ -8,4 +8,4 @@ lazy val lib = project
       "org.scala-lang" % "scala-reflect" % scalaVersion.value,
       "org.scalatest" %% "scalatest" % "2.2.1" % "test",
       "com.typesafe" % "config" % "1.3.0"))
-target in javah := sourceDirectory.value / "native" / "include"
+
