@@ -45,11 +45,11 @@ object QFPCIEInterface {
 }
 //test
 
-object Main {
+/*object Main {
   def main(args: Array[String]): Unit = {
     QFPCIEInterface.startTransaction
     val a = QFPCIEInterface.calc(1,2,3,4,5,2)
     println(a)
     QFPCIEInterface.endTransaction
   }
-}
+}*/

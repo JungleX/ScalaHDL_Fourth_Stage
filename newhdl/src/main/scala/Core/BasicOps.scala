@@ -680,7 +680,7 @@ object HDLBase {
 
   abstract class HDLBaseClass
 
-  abstract class HDLClass extends HDLBaseClass with BasicOps with Compiler with NetworkOps
+  abstract class HDLClass extends HDLBaseClass with BasicOps with Compiler
 
   trait Base {
     // Arithmetic related.
@@ -688,6 +688,12 @@ object HDLBase {
     def module(blocks: HDLBlock*): HDLModule = macro moduleImpl
 
     protected def getSenslist(exp: HDLExp[Any]): Seq[HDLReg[Any]] = exp match {
+      case HDLSwitch(sel,cases) =>
+        getSenslist(sel) ++ getSenslist(cases)
+      case HDLSwitchCase(_, f) =>
+        getSenslist(f)
+      case HDLSwitchDefault(f) =>
+        getSenslist(f)
       case HDLWhen(conditions) =>
         conditions.map(getSenslist(_)).reduceLeft((l, r) => l ++ r)
       case HDLNormalCondition(c, f) =>
@@ -785,7 +791,7 @@ object HDLBase {
     }
 
     def switch(sel: HDLDef[Any]) = {
-      incExpLvl
+      //incExpLvl
       new SwitchBody(sel, List())
     }
     class SwitchBody(sel: HDLDef[Any], cases: List[HDLSwitchCase[Any]]){
@@ -883,11 +889,11 @@ object HDLBase {
     protected def compile[T](exp: HDLExp[T]): String = exp match {
       case HDLSwitch(sel,cases) =>
         "case("  + compile(sel)+ ")\n" + cases.reverse.map(compile(_)).mkString("\n") +
-        "endcase"
+        "\nendcase"
       case HDLSwitchCase(v,exps) =>
-        v.toString + ": begin\n" + exps.map(compile(_)).mkString("\n") + "end"
+        v.toString + ": begin\n" + exps.map(compile(_)).mkString("\n") + "\nend"
       case HDLSwitchDefault(exps) =>
-        "default: begin\n" + exps.map(compile(_)).mkString("\n") + "end"
+        "default: begin\n" + exps.map(compile(_)).mkString("\n") + "\nend"
       case HDLWhen(conditions) =>
         conditions.reverse.map(compile(_)).mkString("\nelse ")
       case HDLNormalCondition(c, f) => c match {
@@ -1025,7 +1031,7 @@ object HDLBase {
     }
   }
 
-  trait NetworkOps {
+  /*trait NetworkOps {
 
     var network_on_off: Boolean = true
 
@@ -1107,6 +1113,6 @@ object HDLBase {
       }
     }
 
-  }
+  }*/
 
 }
