@@ -10,8 +10,9 @@ class RAM[T](clk: HDL[Boolean], run: HDL[Boolean],we: HDL[Boolean],
     sync(clk, 1) {
       when (we) {
         mem(addr) := din
+
       }
-      dout := mem(addr)
+      dout := mem(Unsigned(0,2))
     }
   }
 
