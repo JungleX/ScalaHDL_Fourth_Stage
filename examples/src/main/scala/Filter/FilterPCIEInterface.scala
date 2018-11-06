@@ -103,7 +103,7 @@ object Main {
 
     for (i <- 0 until 4096)
       a.update(i, i)
-    val ba = a.flatMap(ByteBuffer.allocate(8).putLong(_).array())
+    val ba = a.flatMap(ByteBuffer.allocate(8).putLong(_).array().reverse)
 
     println("Test Setup: 32KB DATA, 2000 Iteration.")
     println("=======================================")
@@ -114,8 +114,8 @@ object Main {
       val ret = FilterPCIEInterface.cpufilter(ba)
     }
     var t2 = System.currentTimeMillis()
-    val base = (t2-t1) * 1.0
-    printf("%fms\n",base)
+    val base = (t2 - t1) * 1.0
+    printf("%fms\n", base)
 
 
 
@@ -124,51 +124,52 @@ object Main {
     print("Time Elaspe: ")
     t1 = System.currentTimeMillis()
     for (i <- 0 until 2000) {
-     val ret = FilterPCIEInterface.fpgafilter3(ba,512)
+      val ret = FilterPCIEInterface.fpgafilter3(ba, 512)
 
     }
     t2 = System.currentTimeMillis()
-    printf("%fms\n",(t2 -t1)*1.0)
-    printf("Speedup: %f%%\n",base/(t2-t1)*100)
+    printf("%fms\n", (t2 - t1) * 1.0)
+    printf("Speedup: %f%%\n", base / (t2 - t1) * 100)
 
     println("=======================================")
     println("FPGA (250MHz, Chunck Size 8KB) Start:")
     print("Time Elaspe: ")
     t1 = System.currentTimeMillis()
     for (i <- 0 until 2000) {
-      val ret = FilterPCIEInterface.fpgafilter3(ba,1024)
+      val ret = FilterPCIEInterface.fpgafilter3(ba, 1024)
 
     }
     t2 = System.currentTimeMillis()
-    printf("%fms\n",(t2 -t1)*1.0)
-    printf("Speedup: %f%%\n",base/(t2-t1)*100)
+    printf("%fms\n", (t2 - t1) * 1.0)
+    printf("Speedup: %f%%\n", base / (t2 - t1) * 100)
 
     println("=======================================")
     println("FPGA (250MHz, Chunck Size 16KB) Start:")
     print("Time Elaspe: ")
     t1 = System.currentTimeMillis()
     for (i <- 0 until 2000) {
-      val ret = FilterPCIEInterface.fpgafilter3(ba,2048)
+      val ret = FilterPCIEInterface.fpgafilter3(ba, 2048)
 
     }
     t2 = System.currentTimeMillis()
-    printf("%fms\n",(t2 -t1)*1.0)
-    printf("Speedup: %f%%\n",base/(t2-t1)*100)
+    printf("%fms\n", (t2 - t1) * 1.0)
+    printf("Speedup: %f%%\n", base / (t2 - t1) * 100)
 
     println("=======================================")
     println("FPGA (250MHz, Chunck Size 32KB) Start:")
     print("Time Elaspe: ")
     t1 = System.currentTimeMillis()
     for (i <- 0 until 2000) {
-      val ret = FilterPCIEInterface.fpgafilter3(ba,4096)
+      val ret = FilterPCIEInterface.fpgafilter3(ba, 4096)
 
     }
     t2 = System.currentTimeMillis()
-    printf("%fms\n",(t2 -t1)*1.0)
-    printf("Speedup: %f%%\n",base/(t2-t1)*100)
+    printf("%fms\n", (t2 - t1) * 1.0)
+    printf("Speedup: %f%%\n", base / (t2 - t1) * 100)
 
     FilterPCIEInterface.endTransaction
 
+  }
 }
 //    val t = ByteBuffer.allocate(8)
 //    t.putLong(0,13)
@@ -204,7 +205,7 @@ object Main {
   //      //      val b = ByteBuffer.wrap(ret).asLongBuffer()
   //      //      for (l <- 0 until b.capacity())
   //      //        println(b.get(l))
-}
+//}
 //            val b = ByteBuffer.wrap(ret).asLongBuffer()
 //            for (l <- 0 until b.capacity())
 //              println(b.get(l))
